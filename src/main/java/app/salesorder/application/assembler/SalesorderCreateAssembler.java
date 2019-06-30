@@ -76,7 +76,7 @@ public class SalesorderCreateAssembler {
             map().setCustomer_id(source.getCustomer_id());
             map().setEmployee_id(source.getEmployee_id());
             map().setStatus(source.getStatus());
-            map().setSalesorderdetall(source.getSalesorderdetall());
+           // map().setSalesorderdetall(source.getSalesorderdetall());
 		  }
 		};
 		modelMapper.addMappings(map);

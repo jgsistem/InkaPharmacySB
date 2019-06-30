@@ -1,6 +1,8 @@
 package app.salesorder.application.dto;
 
 import java.util.Date;
+import java.util.List;
+
 import app.salesorderdetall.domain.entity.Saleorderdetall;
 
 public class SalesorderListDto {
@@ -10,8 +12,10 @@ public class SalesorderListDto {
 	private long customer_id;
 	private long employee_id;
 	private int status;		
-	private Saleorderdetall Salesorderdetall;
-		
+	private List<Saleorderdetall> Salesorderdetall;
+	
+	
+	
 	public SalesorderListDto() {		
 	}
 
@@ -55,11 +59,11 @@ public class SalesorderListDto {
 		this.status = status;
 	}
 
-	public Saleorderdetall getSalesorderdetall() {
+	public List<Saleorderdetall> getSalesorderdetall() {
 		return Salesorderdetall;
 	}
 
-	public void setSalesorderdetall(Saleorderdetall salesorderdetall) {
+	public void setSalesorderdetall(List<Saleorderdetall> salesorderdetall) {
 		Salesorderdetall = salesorderdetall;
 	}
 		

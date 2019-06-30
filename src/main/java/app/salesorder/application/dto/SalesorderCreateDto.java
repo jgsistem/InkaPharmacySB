@@ -1,9 +1,11 @@
 package app.salesorder.application.dto;
 
 import java.util.Date;
-
+import java.util.List;
 import app.common.application.dto.RequestBaseDto;
+import app.pucharseorderdetall.application.dto.PurchaseorderdetallListDto;
 import app.salesorderdetall.domain.entity.Saleorderdetall;
+
 
 public class SalesorderCreateDto extends RequestBaseDto {
 
@@ -11,9 +13,14 @@ public class SalesorderCreateDto extends RequestBaseDto {
 	private Date sale_date;
 	private long customer_id;
 	private long employee_id;
-	private int status;		
-	private Saleorderdetall Salesorderdetall;
-		
+	private int status;	
+	private List<Saleorderdetall> salesorderdetall;
+	
+	//SalesOrderDetails
+	//Saleorderdetall
+	
+	//salesorderdetall
+	
 	public SalesorderCreateDto() {		
 	}
 
@@ -57,12 +64,11 @@ public class SalesorderCreateDto extends RequestBaseDto {
 		this.status = status;
 	}
 
-	public Saleorderdetall getSalesorderdetall() {
-		return Salesorderdetall;
+	public List<Saleorderdetall> getSalesorderdetall() {
+		return salesorderdetall;
 	}
 
-	public void setSalesorderdetall(Saleorderdetall salesorderdetall) {
-		Salesorderdetall = salesorderdetall;
-	}
-		
+	public void setSalesorderdetall(List<Saleorderdetall> salesorderdetall) {
+		this.salesorderdetall = salesorderdetall;
+	}		
 }

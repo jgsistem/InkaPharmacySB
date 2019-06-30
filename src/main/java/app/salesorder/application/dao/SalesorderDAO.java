@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
+
+import app.pucharseorderdetall.application.dto.PurchaseorderdetallListDto;
 import app.salesorder.domain.entity.Salesorder;
 import app.salesorderdetall.domain.entity.Saleorderdetall;
 
@@ -45,12 +48,16 @@ public class SalesorderDAO implements ISalesorderDAO {
 	}
 	
 	@Override
-	public void saveSaveorderd(Saleorderdetall s, long productid,int result) {
-		 String sql="INSERT INTO sale_order_detail (sale_order_id,product_id,quantity,price,currency,status)"
-			     + "values("+result+","+s.getProduct_id()+","+s.getQuantity()+","+s.getPrice()+",'"+s.getCurrency()+"',"+s.getStatus()+")";
-	System.out.println(sql);
-	template.update(sql);	
-	
+	public void saveSaveorderd(List<Saleorderdetall> saleorderdetall,int result) {		
+		Iterator<Saleorderdetall> itServicio = saleorderdetall.iterator();		
+		while (itServicio.hasNext())			
+		{
+			Saleorderdetall purchaseorderdetallListDtou = itServicio.next();	
+			 String sql="INSERT INTO sale_order_detail (sale_order_id,product_id,quantity,price,currency,status)"
+			 + "values("+result+","+purchaseorderdetallListDtou.getProduct_id()+","+purchaseorderdetallListDtou.getQuantity()+","+purchaseorderdetallListDtou.getPrice()+",'"+purchaseorderdetallListDtou.getCurrency()+"',"+purchaseorderdetallListDtou.getStatus()+")";
+		    System.out.println(sql);
+		   template.update(sql);
+		}	
 	}
 	
 	
